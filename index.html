@@ -1,0 +1,1383 @@
+
+<!DOCTYPE html>
+<html lang="ky">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#123d59">
+<title>Мырзааким & Амир Аалым — Сүннөт той</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --blue:#164663;
+  --dark:#082b43;
+  --gold:#bb9250;
+  --cream:#fffaf1;
+  --sky:#e5f2f7;
+}
+
+*{box-sizing:border-box}
+
+html{scroll-behavior:auto}
+
+body{
+  margin:0;
+  background:var(--cream);
+  color:var(--dark);
+  font-family:Manrope,Arial,sans-serif;
+  overflow-x:hidden;
+}
+
+body.lock{overflow:hidden}
+button,input,select{font:inherit}
+button{cursor:pointer}
+section{padding:80px 20px}
+
+.wrap{
+  max-width:670px;
+  margin:auto;
+  text-align:center;
+}
+
+h1,h2,.script{
+  font-family:"Cormorant Garamond",Georgia,serif;
+}
+
+h2{
+  font-size:clamp(46px,11vw,76px);
+  line-height:1.08;
+  margin:15px 0 23px;
+  font-weight:700;
+}
+
+p{line-height:1.9}
+
+.label{
+  font-size:11px;
+  letter-spacing:3px;
+  font-weight:800;
+  color:var(--gold);
+}
+
+.line{
+  width:95px;
+  height:1px;
+  background:var(--gold);
+  margin:27px auto;
+}
+
+.ornament{
+  font-size:30px;
+  color:var(--gold);
+  margin:20px 0;
+}
+
+/* КОНВЕРТ */
+
+#cover{
+  position:fixed;
+  inset:0;
+  z-index:9999;
+  display:grid;
+  place-items:center;
+  padding:24px;
+  background:
+    linear-gradient(#082b43dc,#082b43ef),
+    url("balalar1.jpeg") center/cover;
+  transition:opacity 1s,visibility 1s;
+}
+
+#cover.hidden{
+  opacity:0;
+  visibility:hidden;
+  pointer-events:none;
+}
+
+.cover-inner{
+  width:min(100%,410px);
+  text-align:center;
+}
+
+.cover-title{
+  color:#f4d9a7;
+  font-size:12px;
+  letter-spacing:3px;
+  font-weight:800;
+  margin-bottom:35px;
+}
+
+#envelope{
+  position:relative;
+  width:100%;
+  height:245px;
+  border:0;
+  background:#f7edd8;
+  box-shadow:0 25px 80px #0007;
+  perspective:900px;
+}
+
+#envelope:before{
+  content:"";
+  position:absolute;
+  inset:0;
+  z-index:2;
+  background:
+    linear-gradient(35deg,#e8dbc3 49%,transparent 50%)
+    left bottom/51% 100% no-repeat,
+    linear-gradient(-35deg,#fff7e7 49%,transparent 50%)
+    right bottom/51% 100% no-repeat;
+}
+
+.flap{
+  position:absolute;
+  top:0;
+  left:0;
+  width:100%;
+  height:60%;
+  z-index:5;
+  background:linear-gradient(135deg,#fff9ed,#d7c6a6);
+  clip-path:polygon(0 0,100% 0,50% 100%);
+  transform-origin:top;
+  transition:transform 1s;
+}
+
+#envelope.open .flap{
+  transform:rotateX(180deg);
+}
+
+.envelope-names{
+  position:absolute;
+  top:48px;
+  left:0;
+  width:100%;
+  z-index:6;
+  font-family:"Cormorant Garamond",serif;
+  font-size:clamp(36px,8vw,49px);
+  font-weight:700;
+  color:var(--dark);
+  line-height:1.1;
+}
+
+.seal{
+  position:absolute;
+  top:130px;
+  left:50%;
+  transform:translateX(-50%);
+  z-index:7;
+  width:70px;
+  height:70px;
+  border-radius:50%;
+  display:grid;
+  place-items:center;
+  color:white;
+  font-size:27px;
+  background:radial-gradient(circle at 30% 20%,#eedcae,#b58d49 65%,#80602c);
+  border:3px double #f8e4bc;
+  transition:opacity .5s;
+}
+
+#envelope.open .seal{opacity:0}
+
+.cover-hint{
+  color:white;
+  font-size:12px;
+  letter-spacing:2px;
+  font-weight:800;
+  line-height:2;
+  margin-top:30px;
+}
+
+/* САЙТ */
+
+#site{
+  opacity:0;
+  transition:opacity 1s;
+}
+
+#site.visible{opacity:1}
+
+/* БАШКЫ СҮРӨТ */
+
+.hero{
+  min-height:100svh;
+  position:relative;
+  display:flex;
+  align-items:flex-end;
+  justify-content:center;
+  padding:0;
+  background:
+    linear-gradient(0deg,#082b43ed,transparent 80%),
+    url("balalar1.jpeg") center/cover;
+}
+
+.hero-content{
+  position:relative;
+  width:100%;
+  padding:65px 20px 75px;
+  text-align:center;
+  color:white;
+}
+
+.hero h1{
+  font-size:clamp(60px,13vw,100px);
+  line-height:.98;
+  margin:25px 0;
+  font-weight:600;
+}
+
+.hero h1 span{
+  display:block;
+  font-style:italic;
+  color:#f2d7a6;
+  font-size:.7em;
+}
+
+.hero-subtitle{
+  font-size:16px;
+  font-weight:800;
+  letter-spacing:3px;
+}
+
+.hero-date{
+  font-size:18px;
+  font-weight:700;
+  margin-top:20px;
+}
+
+/* ЧАКЫРУУ ТЕКСТИ */
+
+.intro{
+  background:
+    radial-gradient(circle at 50% 0,#e3f0f7,transparent 70%),
+    var(--cream);
+}
+
+.bismillah{
+  font-size:28px;
+  color:var(--gold);
+  margin-bottom:30px;
+}
+
+.intro p{
+  font-size:clamp(17px,4.3vw,21px);
+  font-weight:600;
+}
+
+.intro strong{color:#a7803c}
+
+.quote{
+  font-family:"Cormorant Garamond",serif;
+  font-size:32px!important;
+  color:var(--blue);
+}
+
+/* БАЛДАРДЫН СҮРӨТТӨРҮ */
+
+.photo{
+  background:var(--dark);
+  padding:55px 18px;
+}
+
+.photo-frame{
+  max-width:600px;
+  margin:auto;
+  border:1px solid var(--gold);
+  padding:9px;
+}
+
+.photo img{
+  width:100%;
+  display:block;
+  max-height:760px;
+  object-fit:contain;
+  background:#112e41;
+}
+
+.photo-caption{
+  font-family:"Cormorant Garamond",serif;
+  font-size:34px;
+  color:#e8cf9f;
+  text-align:center;
+  margin:26px 0 0;
+}
+
+/* КҮН ЖАНА КАЛЕНДАРЬ */
+
+.date-section{background:white}
+
+.time{
+  font-family:"Cormorant Garamond",serif;
+  font-size:76px;
+  font-weight:700;
+  color:var(--gold);
+}
+
+.calendar{
+  max-width:440px;
+  margin:35px auto 0;
+  padding:25px 15px;
+  border:1px solid #d9c69f;
+  background:var(--cream);
+}
+
+.month{
+  font-size:19px;
+  font-weight:800;
+  letter-spacing:2px;
+  margin-bottom:20px;
+}
+
+.days{
+  display:grid;
+  grid-template-columns:repeat(7,1fr);
+  gap:4px;
+}
+
+.days div{
+  min-height:39px;
+  display:grid;
+  place-items:center;
+  position:relative;
+  font-weight:700;
+}
+
+.days .weekday{
+  font-size:12px;
+  color:var(--gold);
+}
+
+.days .chosen{
+  color:white;
+  z-index:1;
+}
+
+.days .chosen:before{
+  content:"";
+  position:absolute;
+  z-index:-1;
+  width:39px;
+  height:39px;
+  border-radius:50%;
+  background:var(--blue);
+  border:2px solid var(--gold);
+}
+
+/* ТАЙМЕР */
+
+.count-section{
+  background:
+    linear-gradient(#082b43e6,#082b43ed),
+    url("balalar2.jpeg") center/cover;
+  color:white;
+}
+
+.count-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  margin-top:35px;
+  border-top:1px solid var(--gold);
+  border-bottom:1px solid var(--gold);
+}
+
+.count-grid>div{
+  padding:20px 2px;
+  border-right:1px solid #ffffff44;
+}
+
+.count-grid>div:last-child{border:0}
+
+.count-grid strong{
+  display:block;
+  font-family:"Cormorant Garamond",serif;
+  font-size:clamp(35px,8vw,62px);
+  font-weight:700;
+  color:#f2d7a6;
+}
+
+.count-grid small{
+  font-size:10px;
+  font-weight:800;
+}
+
+/* ДАРЕК */
+
+.location{background:var(--sky)}
+
+.venue{
+  font-family:"Cormorant Garamond",serif;
+  font-size:45px;
+  font-weight:700;
+}
+
+.btn{
+  display:inline-block;
+  padding:18px 25px;
+  border:1px solid var(--gold);
+  background:var(--blue);
+  color:white;
+  text-decoration:none;
+  font-size:12px;
+  font-weight:800;
+  letter-spacing:1px;
+  margin-top:20px;
+}
+
+/* КОНОКТОРДУН ЖООБУ */
+
+.rsvp{background:white}
+
+form{
+  max-width:500px;
+  margin:30px auto 0;
+  text-align:left;
+}
+
+.field{
+  display:block;
+  font-weight:800;
+  font-size:14px;
+  margin:22px 0 10px;
+}
+
+input[type="text"],select{
+  display:block;
+  width:100%;
+  padding:17px;
+  border:1px solid #c4b79e;
+  background:var(--cream);
+  font-size:16px;
+  border-radius:0;
+}
+
+.radio{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  margin:17px 0;
+  font-weight:700;
+}
+
+.radio input{
+  width:19px;
+  height:19px;
+  accent-color:var(--blue);
+}
+
+.submit{
+  width:100%;
+  cursor:pointer;
+}
+
+.small{
+  font-size:12px!important;
+  color:#65727c;
+}
+
+/* АТА-ЭНЕСИНИН СҮРӨТҮ */
+
+.final{
+  background:var(--dark);
+  color:white;
+  padding-bottom:0;
+}
+
+.final h2{color:white}
+
+.hosts{
+  font-family:"Cormorant Garamond",serif;
+  font-size:clamp(55px,12vw,85px);
+  font-weight:700;
+  color:#f0d4a0;
+  margin:25px 0;
+}
+
+.parents{
+  max-width:670px;
+  margin:45px auto 0;
+  border-top:5px solid var(--gold);
+}
+
+.parents img{
+  display:block;
+  width:100%;
+}
+
+footer{
+  text-align:center;
+  padding:26px 15px;
+  background:#061d2e;
+  color:#e5c991;
+  font-size:12px;
+  letter-spacing:2px;
+  font-weight:800;
+}
+
+/* БАШКАРУУ */
+
+#controls{
+  display:none;
+  position:fixed;
+  z-index:900;
+  right:16px;
+  bottom:22px;
+  flex-direction:column;
+  gap:12px;
+}
+
+.control{
+  width:56px;
+  height:56px;
+  border-radius:50%;
+  border:1px solid var(--gold);
+  background:var(--blue);
+  color:#f2d7a6;
+  font-size:23px;
+  box-shadow:0 8px 25px #0005;
+}
+
+.reveal{
+  opacity:0;
+  transform:translateY(23px);
+  transition:opacity .9s,transform .9s;
+}
+
+.reveal.show{
+  opacity:1;
+  transform:none;
+}
+
+@media(max-width:480px){
+  section{padding:70px 18px}
+  .photo{padding:45px 18px}
+  .final{padding-bottom:0}
+  .hero{background-position:center top}
+  #envelope{height:235px}
+}
+
+@media(prefers-reduced-motion:reduce){
+  .reveal{
+    opacity:1;
+    transform:none;
+  }
+}
+</style>
+</head>
+
+<body class="lock">
+
+<!-- АЧЫЛУУЧУ КОНВЕРТ -->
+
+<div id="cover">
+  <div class="cover-inner">
+
+    <div class="cover-title">
+      СҮННӨТ ТОЙГО ЧАКЫРУУ
+    </div>
+
+    <button id="envelope" aria-label="Чакыруу катты ачуу">
+      <div class="flap"></div>
+
+      <div class="envelope-names">
+        Мырзааким<br>
+        & Амир Аалым
+      </div>
+
+      <div class="seal">✦</div>
+    </button>
+
+    <div class="cover-hint">
+      ЧАКЫРУУ КАТТЫ АЧУУ ҮЧҮН БАСЫҢЫЗ
+      <div>✧ ♡ ✧</div>
+    </div>
+
+  </div>
+</div>
+
+<!-- БАЛАМА МУЗЫКАСЫ -->
+
+<audio id="music" preload="auto" loop>
+  <source src="balama.mp3" type="audio/mpeg">
+</audio>
+
+<!-- МУЗЫКА ЖАНА ЖЫЛУУ БАСКЫЧТАРЫ -->
+
+<div id="controls">
+  <button id="scrollBtn" class="control" aria-label="Жылууну токтотуу">
+    ❚❚
+  </button>
+
+  <button id="musicBtn" class="control" aria-label="Музыканы башкаруу">
+    ♫
+  </button>
+</div>
+
+<main id="site">
+
+<!-- 1. БАШКЫ СҮРӨТ -->
+
+<section class="hero">
+  <div class="hero-content">
+
+    <div class="label" style="color:#f1d8aa">
+      БИСМИЛЛАХИР-РАХМАНИР-РАХИМ
+    </div>
+
+    <h1>
+      Мырзааким
+      <span>&</span>
+      Амир Аалым
+    </h1>
+
+    <div class="hero-subtitle">
+      СҮННӨТ ТОЙГО ЧАКЫРУУ
+    </div>
+
+    <div class="hero-date">
+      31 • 10 • 2026
+    </div>
+
+  </div>
+</section>
+
+<!-- 2. ЧАКЫРУУ СӨЗДӨРҮ -->
+
+<section class="intro">
+  <div class="wrap reveal">
+
+    <div class="bismillah">
+      ﷽
+    </div>
+
+    <div class="label">
+      УРМАТТУУ КОНОКТОР!
+    </div>
+
+    <h2>
+      Сүннөт тойго<br>
+      чакырабыз!
+    </h2>
+
+    <div class="ornament">❦</div>
+
+    <p>
+      Сиздерди биздин уулдарыбыз
+      <strong>Мырзааким жана Амир Аалымдын</strong>
+      сүннөт тоюна чын жүрөктөн чакырабыз!
+    </p>
+
+    <p>
+      Бул күн — үй-бүлөбүз үчүн чоң кубаныч!
+      Сиздердин катышууңуздар, ак батаңыздар
+      биз үчүн чоң сыймык.
+    </p>
+
+    <div class="line"></div>
+
+    <p class="quote">
+      Кубанычыбызга ортоктош болуңуздар!
+    </p>
+
+  </div>
+</section>
+
+<!-- 3. БИРИНЧИ СҮРӨТ -->
+
+<section class="photo">
+  <div class="reveal">
+
+    <div class="photo-frame">
+      <img
+        src="balalar1.jpeg"
+        alt="Үч бала классикалык костюмчан"
+        loading="lazy"
+      >
+    </div>
+
+    <div class="photo-caption">
+      Биздин сүйүктүү балдарыбыз
+    </div>
+
+  </div>
+</section>
+
+<!-- 4. ТОЙ КҮНҮ -->
+
+<section class="date-section">
+  <div class="wrap reveal">
+
+    <div class="label">
+      SAVE THE DATE
+    </div>
+
+    <h2>Той күнү</h2>
+
+    <div class="line"></div>
+
+    <p style="font-size:20px;font-weight:800">
+      31-ОКТЯБРЬ, 2026-ЖЫЛ
+    </p>
+
+    <div class="time">
+      17:00
+    </div>
+
+    <div class="calendar">
+
+      <div class="month">
+        ОКТЯБРЬ 2026
+      </div>
+
+      <div class="days">
+
+        <div class="weekday">Дш</div>
+        <div class="weekday">Шш</div>
+        <div class="weekday">Шр</div>
+        <div class="weekday">Бш</div>
+        <div class="weekday">Жм</div>
+        <div class="weekday">Иш</div>
+        <div class="weekday">Жк</div>
+
+        <div></div>
+        <div></div>
+        <div></div>
+
+        <div>1</div>
+        <div>2</div>
+        <div>3</div>
+        <div>4</div>
+
+        <div>5</div>
+        <div>6</div>
+        <div>7</div>
+        <div>8</div>
+        <div>9</div>
+        <div>10</div>
+        <div>11</div>
+
+        <div>12</div>
+        <div>13</div>
+        <div>14</div>
+        <div>15</div>
+        <div>16</div>
+        <div>17</div>
+        <div>18</div>
+
+        <div>19</div>
+        <div>20</div>
+        <div>21</div>
+        <div>22</div>
+        <div>23</div>
+        <div>24</div>
+        <div>25</div>
+
+        <div>26</div>
+        <div>27</div>
+        <div>28</div>
+        <div>29</div>
+        <div>30</div>
+        <div class="chosen">31</div>
+
+      </div>
+
+      <p style="color:var(--gold);font-weight:800;font-size:12px">
+        ♡ БИЗДИН ӨЗГӨЧӨ КҮН ♡
+      </p>
+
+    </div>
+
+  </div>
+</section>
+
+<!-- 5. ЭКИНЧИ СҮРӨТ -->
+
+<section class="photo">
+  <div class="reveal">
+
+    <div class="photo-frame">
+      <img
+        src="balalar2.jpeg"
+        alt="Үч бала кыргыз калпакчан"
+        loading="lazy"
+      >
+    </div>
+
+    <div class="photo-caption">
+      Ак батаңыздар биз үчүн кымбат
+    </div>
+
+  </div>
+</section>
+
+<!-- 6. ТОЙГО ЧЕЙИНКИ УБАКЫТ -->
+
+<section class="count-section">
+  <div class="wrap reveal">
+
+    <div class="label">
+      COUNTDOWN
+    </div>
+
+    <h2>Тойго чейин</h2>
+
+    <div class="count-grid">
+
+      <div>
+        <strong id="days">00</strong>
+        <small>КҮН</small>
+      </div>
+
+      <div>
+        <strong id="hours">00</strong>
+        <small>СААТ</small>
+      </div>
+
+      <div>
+        <strong id="minutes">00</strong>
+        <small>МҮНӨТ</small>
+      </div>
+
+      <div>
+        <strong id="seconds">00</strong>
+        <small>СЕКУНД</small>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+<!-- 7. ТОЙДУН ДАРЕГИ -->
+
+<section class="location">
+  <div class="wrap reveal">
+
+    <div class="label">
+      ДАРЕГИБИЗ
+    </div>
+
+    <h2>
+      Кайда<br>
+      жолугушабыз?
+    </h2>
+
+    <div class="ornament">✧</div>
+
+    <div class="venue">
+      «Кайнар» банкеттик залы
+    </div>
+
+    <p style="font-size:20px;font-weight:800">
+      Ош шаары
+    </p>
+
+    <p>
+      31-октябрь, 2026-жыл<br>
+      Саат 17:00
+    </p>
+
+    <a
+      class="btn"
+      target="_blank"
+      rel="noopener noreferrer"
+      href="https://www.google.com/maps/search/?api=1&amp;query=Кайнар+банкеттик+залы+Ош"
+    >
+      📍 КАРТАДАН КӨРҮҮ
+    </a>
+
+  </div>
+</section>
+
+<!-- 8. КОНОКТОРДУН ЖООБУ -->
+
+<section class="rsvp" id="rsvp">
+  <div class="wrap reveal">
+
+    <div class="label">
+      RSVP
+    </div>
+
+    <h2>
+      Тойго<br>
+      келесизби?
+    </h2>
+
+    <div class="line"></div>
+
+    <p>
+      Жообуңузду билдирип койсоңуз,
+      биз үчүн абдан ыңгайлуу болот.
+    </p>
+
+    <form id="rsvpForm">
+
+      <label class="field" for="guestName">
+        Аты-жөнүңүз
+      </label>
+
+      <input
+        id="guestName"
+        type="text"
+        placeholder="Аты-жөнүңүз"
+        required
+      >
+
+      <label class="field">
+        Тойго катышасызбы?
+      </label>
+
+      <label class="radio">
+        <input
+          type="radio"
+          name="attendance"
+          value="Ооба, барам"
+          required
+        >
+        Ооба, сөзсүз барам
+      </label>
+
+      <label class="radio">
+        <input
+          type="radio"
+          name="attendance"
+          value="Тилекке каршы, бара албайм"
+        >
+        Тилекке каршы, бара албайм
+      </label>
+
+      <label class="field" for="guestCount">
+        Канча адам келесиздер?
+      </label>
+
+      <select id="guestCount">
+
+        <option value="1">1 адам</option>
+        <option value="2">2 адам</option>
+        <option value="3">3 адам</option>
+        <option value="4">4 адам</option>
+        <option value="5">5 адам</option>
+        <option value="6">6 адам</option>
+        <option value="7">7 адам</option>
+        <option value="8">8 адам</option>
+        <option value="9">9 адам</option>
+        <option value="10">10 адам</option>
+
+      </select>
+
+      <button type="submit" class="btn submit">
+        WHATSAPP АРКЫЛУУ ЖООП БЕРҮҮ ↗
+      </button>
+
+      <p class="small">
+        WhatsApp ачылганда алуучуну тандап,
+        билдирүүнү өзүңүз жөнөтөсүз.
+      </p>
+
+    </form>
+
+  </div>
+</section>
+
+<!-- 9. АКЫРКЫ БӨЛҮК -->
+
+<section class="final">
+
+  <div class="wrap reveal">
+
+    <div class="label">
+      СИЗДЕРДИ КҮТӨБҮЗ
+    </div>
+
+    <h2>
+      Келип, ак батаңызды<br>
+      берип кетиңиздер!
+    </h2>
+
+    <div class="ornament">❦</div>
+
+    <p>
+      Урматтоо менен,
+    </p>
+
+    <div class="hosts">
+      Назар & Айчүрөк
+    </div>
+
+    <p style="font-size:18px;font-weight:600">
+      Сиздердин катышууңуздар
+      биздин кубанычыбызды толуктайт!
+    </p>
+
+  </div>
+
+  <!-- ҮЧҮНЧҮ СҮРӨТ ЭҢ АЯГЫНДА -->
+
+  <div class="parents">
+    <img
+      src="ata-ene.jpeg"
+      alt="Назар жана Айчүрөк"
+      loading="lazy"
+    >
+  </div>
+
+</section>
+
+<footer>
+  МЫРЗААКИМ & АМИР ААЛЫМ • 31.10.2026
+</footer>
+
+</main>
+
+<script>
+
+/* НЕГИЗГИ ЭЛЕМЕНТТЕР */
+
+const cover = document.getElementById("cover");
+const envelope = document.getElementById("envelope");
+const site = document.getElementById("site");
+
+const music = document.getElementById("music");
+const musicBtn = document.getElementById("musicBtn");
+
+const scrollBtn = document.getElementById("scrollBtn");
+const controls = document.getElementById("controls");
+
+const rsvp = document.getElementById("rsvp");
+
+let opened = false;
+let auto = false;
+let frame = null;
+let last = null;
+
+/* САЙТТЫН ЖЫЛУУ ЫЛДАМДЫГЫ */
+
+const SPEED = 45;
+
+/* БАЛАМА МУЗЫКАСЫ */
+
+function updateMusic() {
+
+  musicBtn.textContent = music.paused ? "♪" : "♫";
+
+  musicBtn.setAttribute(
+    "aria-label",
+    music.paused
+      ? "Музыканы ойнотуу"
+      : "Музыканы токтотуу"
+  );
+
+}
+
+function playMusic() {
+
+  music.volume = 0.8;
+
+  const result = music.play();
+
+  if (result && typeof result.catch === "function") {
+
+    result.catch(function(error) {
+      console.log("Музыка ойной алган жок:", error);
+      musicBtn.textContent = "♪";
+    });
+
+  }
+
+}
+
+music.addEventListener("play", updateMusic);
+music.addEventListener("pause", updateMusic);
+
+music.addEventListener("error", function() {
+
+  musicBtn.textContent = "!";
+
+  musicBtn.title =
+    "balama.mp3 файлын текшериңиз";
+
+});
+
+/* АВТОМАТТЫК ЖЫЛУУ */
+
+function stopScroll() {
+
+  auto = false;
+  last = null;
+
+  if (frame !== null) {
+    cancelAnimationFrame(frame);
+  }
+
+  frame = null;
+  scrollBtn.textContent = "▶";
+
+}
+
+function scrollFrame(time) {
+
+  if (!auto) return;
+
+  if (last === null) {
+    last = time;
+  }
+
+  const dt = Math.min(
+    (time - last) / 1000,
+    0.1
+  );
+
+  last = time;
+
+  const rsvpTop =
+    rsvp.getBoundingClientRect().top;
+
+  const bottom =
+    document.documentElement.scrollHeight -
+    window.innerHeight;
+
+  if (
+    rsvpTop <= window.innerHeight * 0.65 ||
+    window.scrollY >= bottom - 1
+  ) {
+
+    stopScroll();
+    return;
+
+  }
+
+  window.scrollBy(0, SPEED * dt);
+
+  frame = requestAnimationFrame(scrollFrame);
+
+}
+
+function startScroll() {
+
+  if (!opened || auto) return;
+
+  if (
+    rsvp.getBoundingClientRect().top <=
+    window.innerHeight * 0.65
+  ) {
+    return;
+  }
+
+  auto = true;
+  last = null;
+
+  scrollBtn.textContent = "❚❚";
+
+  frame = requestAnimationFrame(scrollFrame);
+
+}
+
+/* КОНВЕРТТИ АЧУУ */
+
+envelope.addEventListener("click", function() {
+
+  if (opened) return;
+
+  opened = true;
+
+  envelope.classList.add("open");
+
+  /* Конверт басылганда музыка башталат */
+  playMusic();
+
+  setTimeout(function() {
+
+    cover.classList.add("hidden");
+    site.classList.add("visible");
+
+    document.body.classList.remove("lock");
+
+    controls.style.display = "flex";
+
+    updateMusic();
+    initReveal();
+
+    /* 2 секунддан кийин өзү жылат */
+    setTimeout(startScroll, 2000);
+
+  }, 1100);
+
+});
+
+/* МУЗЫКА БАСКЫЧЫ */
+
+musicBtn.addEventListener("click", function() {
+
+  if (music.paused) {
+    playMusic();
+  } else {
+    music.pause();
+  }
+
+});
+
+/* ЖЫЛУУ БАСКЫЧЫ */
+
+scrollBtn.addEventListener("click", function() {
+
+  if (auto) {
+    stopScroll();
+  } else {
+    startScroll();
+  }
+
+});
+
+/* КОНОК ӨЗҮ ЖЫЛДЫРСА ТОКТОЙТ */
+
+document.addEventListener("touchstart", function(event) {
+
+  if (!opened || !auto) return;
+
+  if (event.target.closest("#controls")) return;
+
+  stopScroll();
+
+}, { passive:true });
+
+document.addEventListener("wheel", function() {
+
+  if (auto) stopScroll();
+
+}, { passive:true });
+
+document.addEventListener("keydown", function(event) {
+
+  const keys = [
+    "ArrowDown",
+    "ArrowUp",
+    "PageDown",
+    "PageUp",
+    " ",
+    "Home",
+    "End"
+  ];
+
+  if (auto && keys.includes(event.key)) {
+    stopScroll();
+  }
+
+});
+
+/* ТОЙГО ЧЕЙИНКИ ТАЙМЕР */
+
+const weddingDate =
+  new Date("2026-10-31T17:00:00+06:00").getTime();
+
+function countdown() {
+
+  const diff = Math.max(
+    0,
+    weddingDate - Date.now()
+  );
+
+  const days =
+    Math.floor(diff / 86400000);
+
+  const hours =
+    Math.floor(diff / 3600000) % 24;
+
+  const minutes =
+    Math.floor(diff / 60000) % 60;
+
+  const seconds =
+    Math.floor(diff / 1000) % 60;
+
+  document.getElementById("days").textContent =
+    days;
+
+  document.getElementById("hours").textContent =
+    String(hours).padStart(2, "0");
+
+  document.getElementById("minutes").textContent =
+    String(minutes).padStart(2, "0");
+
+  document.getElementById("seconds").textContent =
+    String(seconds).padStart(2, "0");
+
+}
+
+countdown();
+
+setInterval(countdown, 1000);
+
+/* WHATSAPP ЖООП */
+
+document.getElementById("rsvpForm")
+  .addEventListener("submit", function(event) {
+
+    event.preventDefault();
+
+    stopScroll();
+
+    const name =
+      document.getElementById("guestName").value.trim();
+
+    const attendance =
+      document.querySelector(
+        'input[name="attendance"]:checked'
+      );
+
+    const count =
+      document.getElementById("guestCount").value;
+
+    if (!name || !attendance) return;
+
+    const message =
+      "Саламатсыздарбы! 🤍\n\n" +
+      "Мырзааким жана Амир Аалымдын " +
+      "сүннөт тоюна жооп:\n\n" +
+      "Аты-жөнүм: " + name + "\n" +
+      "Катышуум: " + attendance.value + "\n" +
+      "Адам саны: " + count + "\n\n" +
+      "Рахмат!";
+
+    window.location.href =
+      "https://api.whatsapp.com/send?text=" +
+      encodeURIComponent(message);
+
+  });
+
+/* ЖУМШАК АНИМАЦИЯ */
+
+const observer = new IntersectionObserver(
+  function(entries) {
+
+    entries.forEach(function(entry) {
+
+      if (entry.isIntersecting) {
+
+        entry.target.classList.add("show");
+
+        observer.unobserve(entry.target);
+
+      }
+
+    });
+
+  },
+  {
+    threshold:0.1
+  }
+);
+
+function initReveal() {
+
+  document.querySelectorAll(".reveal")
+    .forEach(function(element) {
+
+      observer.observe(element);
+
+    });
+
+}
+
+</script>
+
+</body>
+</html>
